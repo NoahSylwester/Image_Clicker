@@ -1,0 +1,18 @@
+.Navbar {
+    width: 100%;
+    background: blue;
+    padding: 10px;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+}
+.brand {
+    text-decoration: none;
+    color: white !important;
+}
+.result {
+
+}
+.topScore {
+    
+}
