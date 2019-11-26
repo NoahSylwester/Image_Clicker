@@ -37,7 +37,7 @@ class App extends React.Component {
       case false:
         return <Splash enter={this.beginGame.bind(this)} search={this.handleSearch} />;
       default:
-        return <Game />;
+        return <Error />;
     }
   }
 }

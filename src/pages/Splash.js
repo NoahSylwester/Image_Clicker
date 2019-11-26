@@ -1,5 +1,5 @@
 import React from 'react';
-import Search from '../components/Search';
+import Search from '../components/Search/Search';
 
 class Splash extends React.Component {
     constructor(props) {
@@ -11,9 +11,8 @@ class Splash extends React.Component {
     render() {
         return (
             <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%' }}>
-                <h1>Clicky Game</h1>
-                <Search />
-                <button onClick={this.props.enter} style={{ margin: '20px 0 20px 0'}}>Enter</button>
+                <h1>Image Clicker</h1>
+                <Search enter={this.props.enter} />
             </div>
         )
     }

@@ -1,0 +1,25 @@
+.Search {
+    text-align: center;
+}
+input {
+    border: 1px rgb(172, 172, 172) solid;
+    border-radius: 7px;
+    padding: 5px 10px 5px 10px;
+    transition: 0.5s;
+}
+input:hover {
+    background: rgb(238, 245, 255);
+    border: 1px solid rgb(51, 51, 51);
+}
+input:focus {
+    outline-width: 0;
+    background: rgb(238, 245, 255);
+    border: 1px solid rgb(51, 51, 51);
+}
+button {
+    padding: 5px 10px;
+    border-radius: 7px;
+}
+button:focus {
+    outline-width: 0;
+}
