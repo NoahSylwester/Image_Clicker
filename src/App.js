@@ -32,6 +32,7 @@ class App extends React.Component {
       this.setState({
         ApiResponse: res,
       })
+      console.log(res);
       this.beginGame();
     });
   };
@@ -39,7 +40,7 @@ class App extends React.Component {
   render() {
     switch (this.state.gameStart) {
       case true:
-        return <Game exit={this.stopGame.bind(this)} />;
+        return <Game exit={this.stopGame.bind(this)} data={this.state.ApiResponse} />;
       case false:
         return <Splash enter={this.handleSearch.bind(this)} search={this.handleSearch} />;
       default:

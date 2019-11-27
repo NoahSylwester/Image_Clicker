@@ -34,7 +34,7 @@ class Game extends React.Component {
         return (
             <div style={{ position: 'relative', width: '100%', height: '100%' }}>
                 <Navbar>NAVBAR</Navbar>
-                <Board images={[1,2,3,4]}>BOARD</Board>
+                <Board data={this.props.data}>BOARD</Board>
             </div>
         )
     }

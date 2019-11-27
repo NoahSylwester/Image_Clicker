@@ -13,7 +13,7 @@ img {
     object-fit: cover;
     transition: 0.5s;
     border: 1px solid whitesmoke;
-    border-radius: 3px;
+    border-radius: 5px;
 }
 
 img:hover {
