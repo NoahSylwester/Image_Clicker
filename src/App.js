@@ -37,7 +37,6 @@ class App extends React.Component {
       this.setState({
         ApiResponse: res,
       })
-      console.log(res);
       this.beginGame();
     });
   };

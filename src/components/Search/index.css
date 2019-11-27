@@ -20,6 +20,10 @@ button {
     padding: 5px 10px;
     border-radius: 7px;
 }
+button:hover {
+    background: rgb(238, 245, 255);
+    color: rgb(25, 95, 92);
+}
 button:focus {
     outline-width: 0;
 }
