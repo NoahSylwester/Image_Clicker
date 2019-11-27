@@ -11,12 +11,9 @@ class App extends React.Component {
     super(props);
     this.state = {
         gameStart: false,
+        ApiResponse: "",
     }
   }
-
-  handleSearch() {
-    return API.getImages();
-  };
 
   beginGame() {
     this.setState({
@@ -30,12 +27,21 @@ class App extends React.Component {
     })
   }
 
+  handleSearch(query) {
+    API.getImages(query).then((res) => {
+      this.setState({
+        ApiResponse: res,
+      })
+      this.beginGame();
+    });
+  };
+
   render() {
     switch (this.state.gameStart) {
       case true:
         return <Game exit={this.stopGame.bind(this)} />;
       case false:
-        return <Splash enter={this.beginGame.bind(this)} search={this.handleSearch} />;
+        return <Splash enter={this.handleSearch.bind(this)} search={this.handleSearch} />;
       default:
         return <Error />;
     }
