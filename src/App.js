@@ -30,12 +30,13 @@ class App extends React.Component {
   handleSearch(query) {
     API.getImages(query).then((res) => {
       if (res.data.hits.length < 16) {
-        for (let i = 0; i < 16; i++) {
+        for (let i = 0; i < 12; i++) {
           res.data.hits.push({ largeImageURL: "https://usatftw.files.wordpress.com/2019/02/orca.jpg?w=605&h=363&crop=1&zoom=2" })
         }
       }
+      const resSlice = res.data.hits.slice(0, 12);
       this.setState({
-        ApiResponse: res,
+        ApiResponse: resSlice,
       })
       this.beginGame();
     });
