@@ -5,9 +5,9 @@ import './index.css';
 function Board(props) {
     return (
         <div className="Board">
-            <div className="imageRow">{props.data.slice(0,4).map((element) => <Image src={element.largeImageURL}/>)}</div>
-            <div className="imageRow">{props.data.slice(4,8).map((element) => <Image src={element.largeImageURL}/>)}</div>
-            <div className="imageRow bottom">{props.data.slice(8,12).map((element) => <Image src={element.largeImageURL}/>)}</div>
+            <div className="imageRow">{props.data.slice(0,4).map((element) => <Image src={element.largeImageURL} id={element.id} click={props.click} />)}</div>
+            <div className="imageRow">{props.data.slice(4,8).map((element) => <Image src={element.largeImageURL} id={element.id} click={props.click} />)}</div>
+            <div className="imageRow bottom">{props.data.slice(8,12).map((element) => <Image src={element.largeImageURL} id={element.id} click={props.click} />)}</div>
         </div>
     )
 }

@@ -1,7 +1,8 @@
 .Navbar {
-    width: 100%;
-    background: blue;
+    width: 99%;
+    background: rgb(21, 151, 130);
     padding: 10px;
+    border: 1px white solid;
     color: white;
     display: flex;
     justify-content: space-between;
@@ -9,10 +10,4 @@
 .brand {
     text-decoration: none;
     color: white !important;
-}
-.result {
-
-}
-.topScore {
-    
 }

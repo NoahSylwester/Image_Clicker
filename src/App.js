@@ -35,6 +35,7 @@ class App extends React.Component {
         }
       }
       const resSlice = res.data.hits.slice(0, 12);
+      console.log(resSlice);
       this.setState({
         ApiResponse: resSlice,
       })
