@@ -26,6 +26,7 @@ class Search extends React.Component {
     render() {
         return (
             <div className="Search">
+                <h1>Image Clicker</h1>
                 <input 
                     name="queryString"
                     value={this.state.queryString}

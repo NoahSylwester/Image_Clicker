@@ -10,8 +10,15 @@ class Splash extends React.Component {
     }
     render() {
         return (
-            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%' }}>
-                <h1>Image Clicker</h1>
+            <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                width: '100%',
+                height: '100%',
+                fontFamily: "'Comfortaa', cursive",
+            }}>
                 <Search enter={this.props.enter} />
             </div>
         )
