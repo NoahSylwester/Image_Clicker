@@ -10,6 +10,7 @@ class Game extends React.Component {
             clickedElements: [],
             score: 0,
             topScore: 0,
+            resultText: "Click an image..."
         }
     }
 
@@ -41,6 +42,7 @@ class Game extends React.Component {
                 score: this.state.score + 1,
                 clickedElements: newArray,
                 dataArray: this.shuffleArray(this.state.dataArray),
+                resultText: "Correct!",
             })
             if ( this.state.score + 1 > this.state.topScore ) {
                 // update highest score if applicable
@@ -55,6 +57,7 @@ class Game extends React.Component {
                 score: 0,
                 clickedElements: [],
                 dataArray: this.shuffleArray(this.state.dataArray),
+                resultText: "Incorrect.",
             })
         }
     }
@@ -62,7 +65,7 @@ class Game extends React.Component {
     render() {
         return (
             <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-                <Navbar score={this.state.score} topScore={this.state.topScore}>NAVBAR</Navbar>
+                <Navbar score={this.state.score} topScore={this.state.topScore} resultText={this.state.resultText}>NAVBAR</Navbar>
                 <Board data={this.state.dataArray} click={this.handleClick.bind(this)}>BOARD</Board>
             </div>
         )

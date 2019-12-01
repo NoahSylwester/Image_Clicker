@@ -5,8 +5,8 @@ function Navbar(props) {
     return (
         <div className="Navbar">
             <a className="brand" href="/">Image Clicker</a>
-            <span className="result">Correct/Incorrect</span>
-            <span className="topScore">Score: {props.score} -- Top Score: {props.topScore}&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <span className="result">{props.resultText}</span>
+            <span className="topScore">Score: {props.score} &nbsp;//&nbsp; Top Score: {props.topScore}&nbsp;&nbsp;&nbsp;&nbsp;</span>
         </div>
     )
 }
