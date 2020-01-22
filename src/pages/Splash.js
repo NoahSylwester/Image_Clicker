@@ -19,7 +19,7 @@ class Splash extends React.Component {
                 height: '100%',
                 fontFamily: "'Comfortaa', cursive",
             }}>
-                <Search enter={this.props.enter} />
+                <Search enter={this.props.enter} numImages={3} />
             </div>
         )
     }

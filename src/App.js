@@ -27,26 +27,28 @@ class App extends React.Component {
     })
   }
 
-  handleSearch(query) {
-    API.getImages(query).then((res) => {
-      if (res.data.hits.length < 16) {
-        for (let i = 0; i < 12; i++) {
-          res.data.hits.push({ largeImageURL: "https://usatftw.files.wordpress.com/2019/02/orca.jpg?w=605&h=363&crop=1&zoom=2" })
+  async handleSearch(query, numImages = 12) {
+    const res = await API.getImages(query);
+    
+      if (res.data.hits.length < numImages) {
+        for (let i = 0; i < numImages; i++) {
+          // if not enough results for search term, fills in rest of images with random images from picsum
+          res.data.hits.push({ id: Math.random(), largeImageURL: `https://picsum.photos/200?random=${i + 1}` })
         }
       }
-      const resSlice = res.data.hits.slice(0, 12);
+      const resSlice = res.data.hits.slice(0, numImages);
       console.log(resSlice);
       this.setState({
         ApiResponse: resSlice,
       })
       this.beginGame();
-    });
+      return resSlice;
   };
 
   render() {
     switch (this.state.gameStart) {
       case true:
-        return <Game exit={this.stopGame.bind(this)} data={this.state.ApiResponse} />;
+        return <Game enter={this.handleSearch.bind(this)} exit={this.stopGame.bind(this)} data={this.state.ApiResponse} />;
       case false:
         return <Splash enter={this.handleSearch.bind(this)} search={this.handleSearch} />;
       default:

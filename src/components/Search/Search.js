@@ -1,15 +1,36 @@
 import React from 'react';
 import API from '../../utils/API';
 import './index.css'
+import { thisExpression } from '@babel/types';
 
 class Search extends React.Component {
     state = {
         queryString: "",
+        error: '',
     };
 
-    handleClick = event => {
-        event.preventDefault();
-        this.props.enter(this.state.queryString);
+    handleClick = async (event, numImages = 12) => {
+        if (this.state.queryString !== "") {
+            event.preventDefault();
+            const newArr = await this.props.enter(this.state.queryString, numImages);
+            console.log('newarr', newArr);
+            if (this.props.harder === true) {
+                this.props.reset({
+                    dataArray: newArr,
+                    clickedElements: [],
+                    score: 0,
+                    topScore: newArr.length - 3,
+                    resultText: "Click an image...",
+                    win: false
+                })
+            }
+        }
+        else {
+            this.setState({
+                queryString: "",
+                error: "Enter a search term!"
+            })
+        }
     }
 
     handleInputChange = event => {
@@ -26,7 +47,7 @@ class Search extends React.Component {
     render() {
         return (
             <div className="Search">
-                <h1>Image Clicker</h1>
+                { !this.props.harder ? <h1>Image Clicker</h1> : <div />}
                 <input 
                     name="queryString"
                     value={this.state.queryString}
@@ -35,11 +56,12 @@ class Search extends React.Component {
                 />
                 <br />
                 <button
-                    onClick={this.handleClick}
+                    onClick={event => this.handleClick(event, this.props.numImages)}
                     style={{ margin: '20px 0 20px 0'}}
                 >
                     Enter
                 </button>
+                <p className={this.props.harder ? "error-harder" : "error"}>{this.state.error}</p>
             </div>
         )
     }

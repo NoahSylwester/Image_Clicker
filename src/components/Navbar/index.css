@@ -13,3 +13,13 @@
     color: white !important;
     font-family: 'Comfortaa', cursive;
 }
+.result-correct {
+    color: rgb(0, 255, 0);
+}
+.result-incorrect {
+    color: rgb(255, 0, 0);
+}
+.score {
+    display: inline-block;
+    width: 5px;
+}

@@ -1,16 +1,18 @@
 import React from 'react';
 import Navbar from '../components/Navbar/Navbar';
 import Board from '../components/Board/Board';
+import Win from '../components/Win/Win';
 
 class Game extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            dataArray: [],
+            dataArray: this.props.data,
             clickedElements: [],
             score: 0,
             topScore: 0,
-            resultText: "Click an image..."
+            resultText: "Click an image...",
+            win: false
         }
     }
 
@@ -50,6 +52,12 @@ class Game extends React.Component {
                     topScore: this.state.score + 1,
                 })
             }
+            if ( this.state.score + 1 >= this.state.dataArray.length ) {
+                // check for win
+                this.setState({
+                    win: true
+                })
+            }
         }
         else {
             // incorrect guess resets score and randomizes array
@@ -66,7 +74,11 @@ class Game extends React.Component {
         return (
             <div style={{ position: 'relative', width: '100%', height: '100%' }}>
                 <Navbar score={this.state.score} topScore={this.state.topScore} resultText={this.state.resultText}>NAVBAR</Navbar>
+                { !this.state.win ? 
                 <Board data={this.state.dataArray} click={this.handleClick.bind(this)}>BOARD</Board>
+                :
+                <Win enter={this.props.enter} numImages={this.state.dataArray.length + 3} reset={this.setState.bind(this)} />
+                }
             </div>
         )
     }
